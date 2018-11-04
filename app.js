@@ -1,6 +1,8 @@
-
-// Imports the Google Cloud client library
+const bodyParser = require('body-parser');
+var express = require('express');
 const language = require('@google-cloud/language');
+var app = express()
+app.use(bodyParser);
 
 // Instantiates a client
 const client = new language.LanguageServiceClient({
@@ -34,8 +36,7 @@ const document = {
 
 // Detects the sentiment of the text
 
-var express = require('express')
-var app = express()
+
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
@@ -43,7 +44,7 @@ app.get('/', function (req, res) {
         .analyzeSentiment({document: document})
         .then(results => {
             const sentiment = results[0].documentSentiment;
-            console.log(req);
+            console.log(req.body);
             console.log(`Text: ${text}`);
             console.log(`Sentiment score: ${sentiment.score}`);
             console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
