@@ -36,15 +36,14 @@ var app = express()
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
     client
-    const document = {
-        content: req.data,
-        type: 'PLAIN_TEXT',
-    }
-    console.log(req)
         .analyzeSentiment({document: document})
         .then(results => {
+            const document = {
+                content: req.data,
+                type: 'PLAIN_TEXT',
+            }
             const sentiment = results[0].documentSentiment;
-
+            console.log(req)
             senmag = {
                 "status" :200,
                 "mag" : ""
