@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
         .analyzeSentiment({document: document})
         .then(results => {
             const sentiment = results[0].documentSentiment;
-
+            console.log(req);
             console.log(`Text: ${text}`);
             console.log(`Sentiment score: ${sentiment.score}`);
             console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
