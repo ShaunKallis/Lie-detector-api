@@ -42,7 +42,7 @@ app.get('/', function (req, res) {
         .analyzeSentiment({document: document})
         .then(results => {
             const sentiment = results[0].documentSentiment;
-            let senmag = {
+            senmag = {
                 "status" :200,
                 "mag" : ""
             }
