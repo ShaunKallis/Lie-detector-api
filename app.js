@@ -2,7 +2,7 @@ const bodyParser = require('body-parser');
 var express = require('express');
 const language = require('@google-cloud/language');
 var app = express()
-app.use(bodyParser);
+app.use(bodyParser.json());
 
 // Instantiates a client
 const client = new language.LanguageServiceClient({
